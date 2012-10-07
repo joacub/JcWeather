@@ -1,0 +1,26 @@
+{
+    "name": "atukai/at-weather",
+    "description": "A ZF2 module to get weather forecasts from online weather providers.",
+    "type": "library",
+    "keywords": [
+        "weather, forecast, atukai, at, zf2"
+    ],
+    "homepage": "https://github.com/atukai/at-weather",
+    "authors": [
+        {
+            "name": "Alexander Tukai",
+            "email": "atukai@gmail.com"
+        }
+    ],
+    "require": {
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "AtPhpSettings": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
