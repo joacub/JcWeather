@@ -6,7 +6,9 @@ use AtWeather;
 use Zend\Json\Json;
 
 /**
- * AtWeather WorldWeatherOnline provider
+ * WorldWeatherOnline weather provider class for AtWeather.
+ *
+ * @see http://www.worldweatheronline.com/
  */
 class WorldWeatherOnline extends AbstractProvider
 {
@@ -21,6 +23,11 @@ class WorldWeatherOnline extends AbstractProvider
     protected $responseFormat = 'json';
 
     /**
+     * @var int
+     */
+    protected $numberOfDays = 5;
+
+    /**
      * @param $location
      * @param array $params
      */
@@ -28,18 +35,29 @@ class WorldWeatherOnline extends AbstractProvider
     {
         parent::__construct($location, $params);
 
-        $this->setApiKey($params['apiKey']);
-        $this->setResponseFormat($params['format']);
+        if (!isset($params['key'])) {
+            throw new \Exception('Please specify API Key.');
+        }
+
+        $this->setApiKey($params['key']);
+
+        if (isset($params['format'])) {
+            $this->setResponseFormat($params['format']);
+        }
+
+        if (isset($params['num_of_days'])) {
+            $this->setResponseFormat($params['num_of_days']);
+        }
     }
 
     /**
-     * Setter for service API key
-     *
      * @param $key
+     * @return \AtWeather\Provider\WorldWeatherOnline
      */
     public function setApiKey($key)
     {
         $this->apiKey = $key;
+        return $this;
     }
 
     /**
@@ -54,10 +72,12 @@ class WorldWeatherOnline extends AbstractProvider
 
     /**
      * @param $format
+     * @return \AtWeather\Provider\WorldWeatherOnline
      */
     public function setResponseFormat($format)
     {
         $this->responseFormat = $format;
+        return $this;
     }
 
     /**
@@ -69,9 +89,27 @@ class WorldWeatherOnline extends AbstractProvider
     }
 
     /**
+     * @param $value
+     * @return \AtWeather\Provider\WorldWeatherOnline
+     */
+    public function setNumberOfDays($value)
+    {
+        $this->responseFormat = $value;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfDays()
+    {
+        return $this->numberOfDays;
+    }
+
+    /**
      * Fetches the weather forecast for the given location.
      *
-     * @return WorldWeatherOnline
+     * @return \AtWeather\Provider\WorldWeatherOnline
      * @throws \Exception
      */
     public function fetch()
@@ -80,7 +118,7 @@ class WorldWeatherOnline extends AbstractProvider
             'key'         => $this->getApiKey(),
             'format'      => $this->getResponseFormat(),
             'q'           => $this->getLocation(),
-            'num_of_days' => 5
+            'num_of_days' => $this->getNumberOfDays()
         );
 
         $client = $this->getHttpClient();

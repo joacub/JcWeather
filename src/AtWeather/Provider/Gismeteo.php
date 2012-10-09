@@ -5,7 +5,8 @@ namespace AtWeather\Provider;
 use AtWeather;
 
 /**
- * AtWeather WorldWeatherOnline provider
+ * Gismeteo weather provider class for AtWeather.
+ * @see http://www.gismeteo.ru/
  */
 class Gismeteo extends AbstractProvider
 {

@@ -9,17 +9,20 @@ return array(
                     'apiUrl' => 'http://informer.gismeteo.ru/xml/'
                 )
             ),
-            'accuweather' => array(
-                'name' => 'AtWeather\Provider\AccuWeather',
+            'yahoo' => array(
+                'name' => 'AtWeather\Provider\Yahoo',
                 'params' => array(
+                    'apiUrl' => 'http://weather.yahooapis.com/forecastrss',
+                    'units'  => ''
                 )
             ),
             'worldweatheronline' => array(
                 'name' => 'AtWeather\Provider\WorldWeatherOnline',
                 'params' => array(
-                    'apiUrl' => 'http://free.worldweatheronline.com/feed/weather.ashx',
-                    'apiKey' => '',
-                    'format' => 'json',
+                    'apiUrl'      => 'http://free.worldweatheronline.com/feed/weather.ashx',
+                    'apiKey'      => '',
+                    'format'      => 'json',
+                    'num_of_days' => 5
                 )
             )
         ),

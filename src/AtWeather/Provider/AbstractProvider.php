@@ -42,6 +42,10 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
      */
     public function __construct($location, $params = array())
     {
+        if (!isset($params['apiUrl'])) {
+            throw new \Exception('Please specify API url for given provider.');
+        }
+
         $this->setApiUrl($params['apiUrl']);
         $this->setHttpClient(new Http\Client($this->getApiUrl()));
 
@@ -51,19 +55,17 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
     }
 
     /**
-     * Setter for the Google's service API URL
-     *
-     * @param string $url
+     * @param $url
+     * @return \AtWeather\Provider\AbstractProvider
      */
     public function setApiUrl($url)
     {
         $this->apiUrl = $url;
+        return $this;
     }
 
     /**
-     * Getter for the Google's service API URL
-     *
-     * @return string
+     * @return mixed
      */
     public function getApiUrl()
     {
@@ -71,11 +73,33 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
     }
 
     /**
-     * Sets the Zend_Http_Client object to use in requests. If not provided a default will
+     * Sets the city name to be used in requests
+     *
+     * @param $location
+     * @return \AtWeather\Provider\AbstractProvider
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+        return $this;
+    }
+
+    /**
+     * Gets the city name to be used in requests.
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Sets the \Zend\Http\Client object to use in requests. If not provided a default will
      * be used.
      *
      * @param \Zend\Http\Client $client
-     * @return \AtWeather\Provider\WorldWeatherOnline
+     * @return \AtWeather\Provider\AbstractProvider
      */
     public function setHttpClient(Http\Client $client)
     {
@@ -101,13 +125,13 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
     }
 
     /**
-     * Setter for the forecast
-     *
      * @param \AtWeather\Forecast $forecast
+     * @return \AtWeather\Provider\AbstractProvider
      */
     public function setForecast(AtWeather\Forecast $forecast)
     {
         $this->forecast = $forecast;
+        return $this;
     }
 
     /**
@@ -122,28 +146,6 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
         }
 
         return $this->forecast;
-    }
-
-    /**
-     * Sets the city name to be used in requests
-     *
-     * @param $location
-     * @return AbstractProvider
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-        return $this;
-    }
-
-    /**
-     * Gets the city name to be used in requests.
-     *
-     * @return string
-     */
-    public function getLocation()
-    {
-        return $this->location;
     }
 
     /**
