@@ -63,7 +63,7 @@ class Yahoo extends AbstractProvider
      */
     public function fetch()
     {
-        $uri = $this->getApiUrl() . $this->getLocation(). '_1.xml';
+        $uri = $this->getApiUrl();
 
         $client = $this->getHttpClient();
         $client->setUri($uri);

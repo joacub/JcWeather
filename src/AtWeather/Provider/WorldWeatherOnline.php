@@ -46,7 +46,7 @@ class WorldWeatherOnline extends AbstractProvider
         }
 
         if (isset($params['num_of_days'])) {
-            $this->setResponseFormat($params['num_of_days']);
+            $this->setNumberOfDays($params['num_of_days']);
         }
     }
 
@@ -94,7 +94,7 @@ class WorldWeatherOnline extends AbstractProvider
      */
     public function setNumberOfDays($value)
     {
-        $this->responseFormat = $value;
+        $this->numberOfDays = (int) $value;
         return $this;
     }
 
@@ -116,10 +116,13 @@ class WorldWeatherOnline extends AbstractProvider
     {
         $params = array(
             'key'         => $this->getApiKey(),
-            'format'      => $this->getResponseFormat(),
             'q'           => $this->getLocation(),
+            'format'      => $this->getResponseFormat(),
             'num_of_days' => $this->getNumberOfDays()
         );
+
+        // @todo: Parameters format and num_of_days are not required.
+        // By default are xml and 1
 
         $client = $this->getHttpClient();
         $client->setParameterGet($params);
