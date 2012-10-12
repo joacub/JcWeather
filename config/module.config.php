@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'atweather' => array(
+    'at-weather' => array(
         'providers' => array(
             'gismeteo' => array(
                 'name' => 'AtWeather\Provider\Gismeteo',
@@ -29,7 +29,7 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'AtWeather' => 'AtWeather\Service\Factory',
+            'AtWeatherManager' => 'AtWeather\Service\Factory',
             'AtWeatherProvider' => 'AtWeather\ProviderFactory',
         ),
     )
