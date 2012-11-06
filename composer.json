@@ -3,7 +3,7 @@
     "description": "A ZF2 module to get weather forecasts from online weather providers.",
     "type": "library",
     "keywords": [
-        "weather, forecast, atukai, at, zf2"
+        "weather", "forecast", "AtWeather", "atukai", "at", "zf2"
     ],
     "homepage": "https://github.com/atukai/at-weather",
     "authors": [
