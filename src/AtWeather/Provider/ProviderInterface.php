@@ -1,6 +1,6 @@
 <?php
 
-namespace AtWeather;
+namespace AtWeather\Provider;
 
 /**
  * AtWeather provider interface

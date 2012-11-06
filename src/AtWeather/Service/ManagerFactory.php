@@ -9,7 +9,7 @@ use AtWeather\Manager;
 /**
  * AtWeather service manager factory
  */
-class Factory implements FactoryInterface
+class ManagerFactory implements FactoryInterface
 {
     /**
      * Factory method for AtWeather Manager service

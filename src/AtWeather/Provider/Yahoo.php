@@ -2,8 +2,6 @@
 
 namespace AtWeather\Provider;
 
-use AtWeather;
-
 /**
  * Yahoo! weather provider class for AtWeather.
  *
@@ -82,7 +80,7 @@ class Yahoo extends AbstractProvider
 
         $xml = new \SimpleXMLElement(utf8_encode($response->getBody()));
 
-        $forecast = new AtWeather\Forecast();
+        $forecast = new \AtWeather\Forecast();
         $this->setForecast($forecast);
 
         return $this;

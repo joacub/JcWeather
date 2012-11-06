@@ -2,7 +2,6 @@
 
 namespace AtWeather\Provider;
 
-use AtWeather;
 use Zend\Json\Json;
 
 /**
@@ -154,7 +153,7 @@ class WorldWeatherOnline extends AbstractProvider
             $forecastArray[] = $dayData;
         }
 
-        $forecast = new AtWeather\Forecast();
+        $forecast = new \AtWeather\Forecast();
         $forecast->setLocation($data->data->request[0]->query)
                  ->setCurrent(array(
                      "icon" => $current->weatherIconUrl[0]->value,

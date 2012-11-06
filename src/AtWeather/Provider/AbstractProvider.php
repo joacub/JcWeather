@@ -2,13 +2,12 @@
 
 namespace AtWeather\Provider;
 
-use AtWeather;
 use Zend\Http;
 
 /**
  * AtWeather abstract provider class
  */
-abstract class AbstractProvider implements AtWeather\ProviderInterface
+abstract class AbstractProvider implements ProviderInterface
 {
     /**
      * Service API url
@@ -128,7 +127,7 @@ abstract class AbstractProvider implements AtWeather\ProviderInterface
      * @param \AtWeather\Forecast $forecast
      * @return \AtWeather\Provider\AbstractProvider
      */
-    public function setForecast(AtWeather\Forecast $forecast)
+    public function setForecast(\AtWeather\Forecast $forecast)
     {
         $this->forecast = $forecast;
         return $this;

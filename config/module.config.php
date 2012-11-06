@@ -29,8 +29,8 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'AtWeatherManager' => 'AtWeather\Service\Factory',
-            'AtWeatherProvider' => 'AtWeather\ProviderFactory',
+            'AtWeatherManager' => 'AtWeather\Service\ManagerFactory',
+            'AtWeatherProvider' => 'AtWeather\Service\ProviderFactory',
         ),
     )
 );

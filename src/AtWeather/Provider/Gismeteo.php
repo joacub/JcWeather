@@ -2,8 +2,6 @@
 
 namespace AtWeather\Provider;
 
-use AtWeather;
-
 /**
  * Gismeteo weather provider class for AtWeather.
  * @see http://www.gismeteo.ru/
@@ -55,7 +53,7 @@ class Gismeteo extends AbstractProvider
             $forecastArray[] = $dayData;
         }
 
-        $forecast = new AtWeather\Forecast();
+        $forecast = new \AtWeather\Forecast();
         $forecast->setLocation(urldecode($location[0]->sname))
             ->setCurrent(array(
                 "icon" => '',
