@@ -12,7 +12,7 @@ ZF2 module to get weather forecast from online weather providers.
 
 ## Installation
 
-Add this repository as a submodule to your repository or install using Composer:
+Install using Composer:
 
 ```
 {
