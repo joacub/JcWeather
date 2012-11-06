@@ -2,6 +2,8 @@
 
 namespace AtWeather;
 
+use AtWeather\Service;
+
 class Manager
 {
     /**
@@ -37,7 +39,7 @@ class Manager
         if (isset($this->cache[$location])) {
             $weather = $this->cache[$location];
         } else {
-            $providerFactory = new ProviderFactory();
+            $providerFactory = new Service\ProviderFactory();
             $provider = $providerFactory->createProvider($provider, $this->params);
             $provider->setLocation($location);
 
