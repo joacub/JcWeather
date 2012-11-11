@@ -2,7 +2,7 @@
 
 Version 0.0.2
 
-AtWeather is a [Zend Framework 2](http://framework.zend.com) module that help to get weather forecast from online weather providers.
+AtWeather is a [Zend Framework 2](http://framework.zend.com) module that helps to get weather forecast from online weather providers.
 
 ## Requirements
 
