@@ -1,15 +1,15 @@
 {
-    "name": "atukai/at-weather",
+    "name": "joacub/jc-weather",
     "description": "A ZF2 module to get weather forecasts from online weather providers.",
     "type": "library",
     "keywords": [
         "weather", "forecast", "AtWeather", "atukai", "at", "zf2"
     ],
-    "homepage": "https://github.com/atukai/AtWeather",
+    "homepage": "https://github.com/joacub/JcWeather",
     "authors": [
         {
-            "name": "Alexander Tukai",
-            "email": "atukai@gmail.com"
+            "name": "Johan",
+            "email": "joacub@gmail.com"
         }
     ],
     "require": {
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-0": {
-            "AtWeather\\": "src/"
+            "JcWeather\\": "src/"
         },
         "classmap": [
             "./Module.php"
