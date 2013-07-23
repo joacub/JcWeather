@@ -1,21 +1,21 @@
 <?php
 
-namespace AtWeather\Service;
+namespace JcWeather\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use AtWeather\Manager;
+use JcWeather\Manager;
 
 /**
- * AtWeather service manager factory
+ * JcWeather service manager factory
  */
 class ManagerFactory implements FactoryInterface
 {
     /**
-     * Factory method for AtWeather Manager service
+     * Factory method for JcWeather Manager service
      *
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \AtWeather\Manager
+     * @return \JcWeather\Manager
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

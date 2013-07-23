@@ -1,6 +1,6 @@
 <?php
 
-namespace AtWeather;
+namespace JcWeather;
 
 class Module
 {

@@ -3,7 +3,7 @@
     "description": "A ZF2 module to get weather forecasts from online weather providers.",
     "type": "library",
     "keywords": [
-        "weather", "forecast", "AtWeather", "atukai", "at", "zf2"
+        "weather", "forecast", "JcWeather", "atukai", "at", "zf2"
     ],
     "homepage": "https://github.com/joacub/JcWeather",
     "authors": [

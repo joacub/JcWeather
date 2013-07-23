@@ -1,9 +1,9 @@
 <?php
 
-namespace AtWeather\Provider;
+namespace JcWeather\Provider;
 
 /**
- * AtWeather provider interface
+ * JcWeather provider interface
  */
 interface ProviderInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace AtWeather\Provider;
+namespace JcWeather\Provider;
 
 /**
- * Yahoo! weather provider class for AtWeather.
+ * Yahoo! weather provider class for JcWeather.
  *
  * @see http://weather.yahoo.com/
  * @see http://developer.yahoo.com/weather/
@@ -33,7 +33,7 @@ class Yahoo extends AbstractProvider
 
     /**
      * @param $value
-     * @return \AtWeather\Provider\Yahoo
+     * @return \JcWeather\Provider\Yahoo
      */
     public function setUnits($value)
     {
@@ -65,6 +65,7 @@ class Yahoo extends AbstractProvider
 
         $client = $this->getHttpClient();
         $client->setUri($uri);
+        $client->setParameterGet(array('w' => $this->getLocation()));
 
         $response = null;
 
@@ -80,7 +81,7 @@ class Yahoo extends AbstractProvider
 
         $xml = new \SimpleXMLElement(utf8_encode($response->getBody()));
 
-        $forecast = new \AtWeather\Forecast();
+        $forecast = new \JcWeather\Forecast();
         $this->setForecast($forecast);
 
         return $this;

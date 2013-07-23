@@ -1,8 +1,8 @@
 <?php
 
-namespace AtWeather;
+namespace JcWeather;
 
-use AtWeather\Service;
+use JcWeather\Service;
 
 class Manager
 {

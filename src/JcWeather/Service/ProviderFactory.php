@@ -1,9 +1,9 @@
 <?php
 
-namespace AtWeather\Service;
+namespace JcWeather\Service;
 
 /**
-* AtWeather provider factory
+* JcWeather provider factory
 */
 class ProviderFactory
 {

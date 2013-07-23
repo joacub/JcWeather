@@ -4,20 +4,20 @@ return array(
     'at-weather' => array(
         'providers' => array(
             'gismeteo' => array(
-                'name' => 'AtWeather\Provider\Gismeteo',
+                'name' => 'JcWeather\Provider\Gismeteo',
                 'params' => array(
                     'apiUrl' => 'http://informer.gismeteo.ru/xml/'
                 )
             ),
             'yahoo' => array(
-                'name' => 'AtWeather\Provider\Yahoo',
+                'name' => 'JcWeather\Provider\Yahoo',
                 'params' => array(
                     'apiUrl' => 'http://weather.yahooapis.com/forecastrss',
                     'units'  => ''
                 )
             ),
             'worldweatheronline' => array(
-                'name' => 'AtWeather\Provider\WorldWeatherOnline',
+                'name' => 'JcWeather\Provider\WorldWeatherOnline',
                 'params' => array(
                     'apiUrl'      => 'http://free.worldweatheronline.com/feed/weather.ashx',
                     'apiKey'      => '',
@@ -29,8 +29,8 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'AtWeatherManager' => 'AtWeather\Service\ManagerFactory',
-            'AtWeatherProvider' => 'AtWeather\Service\ProviderFactory',
+            'JcWeatherManager' => 'JcWeather\Service\ManagerFactory',
+            'JcWeatherProvider' => 'JcWeather\Service\ProviderFactory',
         ),
     )
 );

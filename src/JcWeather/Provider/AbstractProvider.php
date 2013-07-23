@@ -1,11 +1,11 @@
 <?php
 
-namespace AtWeather\Provider;
+namespace JcWeather\Provider;
 
 use Zend\Http;
 
 /**
- * AtWeather abstract provider class
+ * JcWeather abstract provider class
  */
 abstract class AbstractProvider implements ProviderInterface
 {
@@ -55,7 +55,7 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * @param $url
-     * @return \AtWeather\Provider\AbstractProvider
+     * @return \JcWeather\Provider\AbstractProvider
      */
     public function setApiUrl($url)
     {
@@ -75,7 +75,7 @@ abstract class AbstractProvider implements ProviderInterface
      * Sets the city name to be used in requests
      *
      * @param $location
-     * @return \AtWeather\Provider\AbstractProvider
+     * @return \JcWeather\Provider\AbstractProvider
      */
     public function setLocation($location)
     {
@@ -98,7 +98,7 @@ abstract class AbstractProvider implements ProviderInterface
      * be used.
      *
      * @param \Zend\Http\Client $client
-     * @return \AtWeather\Provider\AbstractProvider
+     * @return \JcWeather\Provider\AbstractProvider
      */
     public function setHttpClient(Http\Client $client)
     {
@@ -124,10 +124,10 @@ abstract class AbstractProvider implements ProviderInterface
     }
 
     /**
-     * @param \AtWeather\Forecast $forecast
-     * @return \AtWeather\Provider\AbstractProvider
+     * @param \JcWeather\Forecast $forecast
+     * @return \JcWeather\Provider\AbstractProvider
      */
-    public function setForecast(\AtWeather\Forecast $forecast)
+    public function setForecast(\JcWeather\Forecast $forecast)
     {
         $this->forecast = $forecast;
         return $this;

@@ -1,9 +1,9 @@
 <?php
 
-namespace AtWeather\Provider;
+namespace JcWeather\Provider;
 
 /**
- * Gismeteo weather provider class for AtWeather.
+ * Gismeteo weather provider class for JcWeather.
  * @see http://www.gismeteo.ru/
  */
 class Gismeteo extends AbstractProvider
@@ -53,7 +53,7 @@ class Gismeteo extends AbstractProvider
             $forecastArray[] = $dayData;
         }
 
-        $forecast = new \AtWeather\Forecast();
+        $forecast = new \JcWeather\Forecast();
         $forecast->setLocation(urldecode($location[0]->sname))
             ->setCurrent(array(
                 "icon" => '',

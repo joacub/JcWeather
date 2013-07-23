@@ -1,11 +1,11 @@
 <?php
 
-namespace AtWeather\Provider;
+namespace JcWeather\Provider;
 
 use Zend\Json\Json;
 
 /**
- * WorldWeatherOnline weather provider class for AtWeather.
+ * WorldWeatherOnline weather provider class for JcWeather.
  *
  * @see http://www.worldweatheronline.com/
  */
@@ -51,7 +51,7 @@ class WorldWeatherOnline extends AbstractProvider
 
     /**
      * @param $key
-     * @return \AtWeather\Provider\WorldWeatherOnline
+     * @return \JcWeather\Provider\WorldWeatherOnline
      */
     public function setApiKey($key)
     {
@@ -71,7 +71,7 @@ class WorldWeatherOnline extends AbstractProvider
 
     /**
      * @param $format
-     * @return \AtWeather\Provider\WorldWeatherOnline
+     * @return \JcWeather\Provider\WorldWeatherOnline
      */
     public function setResponseFormat($format)
     {
@@ -89,7 +89,7 @@ class WorldWeatherOnline extends AbstractProvider
 
     /**
      * @param $value
-     * @return \AtWeather\Provider\WorldWeatherOnline
+     * @return \JcWeather\Provider\WorldWeatherOnline
      */
     public function setNumberOfDays($value)
     {
@@ -108,7 +108,7 @@ class WorldWeatherOnline extends AbstractProvider
     /**
      * Fetches the weather forecast for the given location.
      *
-     * @return \AtWeather\Provider\WorldWeatherOnline
+     * @return \JcWeather\Provider\WorldWeatherOnline
      * @throws \Exception
      */
     public function fetch()
@@ -153,7 +153,7 @@ class WorldWeatherOnline extends AbstractProvider
             $forecastArray[] = $dayData;
         }
 
-        $forecast = new \AtWeather\Forecast();
+        $forecast = new \JcWeather\Forecast();
         $forecast->setLocation($data->data->request[0]->query)
                  ->setCurrent(array(
                      "icon" => $current->weatherIconUrl[0]->value,
