@@ -3,6 +3,7 @@
 namespace JcWeather\Provider;
 
 use Nette\Diagnostics\Debugger;
+use Zend\Config\Reader\Xml;
 /**
  * Yahoo! weather provider class for JcWeather.
  *
@@ -80,15 +81,15 @@ class Yahoo extends AbstractProvider
             throw new \Exception("No weather information available.");
         }
 
-        $xml = new \SimpleXMLElement(utf8_encode($response->getBody()));
-
+        $xml = new Xml();
+        $xml = $xml->fromString(utf8_encode($response->getBody()));
         $forecast = new \JcWeather\Forecast();
         
-        $forecast->setLocation((string) $xml->channel->xpath('yweather:location')[0]->attributes()->city)
+        $forecast->setLocation((string) $xml['channel']['yweather:location']['city'])
         ->setCurrent(array(
-        	"icon" => 'http://l.yimg.com/a/i/us/we/52/'.( (string) $xml->channel->item->xpath('yweather:condition')[0]->attributes()->code).'.gif',
-        	"temperature" => (string) $xml->channel->item->xpath('yweather:condition')[0]->attributes()->temp))
-        	->setForecast($xml->channel->item->xpath('yweather:forecast'));
+        	"icon" => 'http://l.yimg.com/a/i/us/we/52/'.( (string) $xml['channel']['item']['yweather:condition']['code']).'.gif',
+        	"temperature" => (string) $xml['channel']['item']['yweather:condition']['temp']))
+        	->setForecast($xml['channel']['item']['yweather:forecast']);
         
         $this->setForecast($forecast);
 
