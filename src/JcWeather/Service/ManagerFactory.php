@@ -20,7 +20,7 @@ class ManagerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
-        $params = $config['at-weather'];
+        $params = $config['jc-weather'];
 
         $manager = new Manager($params);
         return $manager;

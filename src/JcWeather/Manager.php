@@ -3,6 +3,7 @@
 namespace JcWeather;
 
 use JcWeather\Service;
+use Nette\Diagnostics\Debugger;
 
 class Manager
 {
@@ -34,11 +35,13 @@ class Manager
      * @return array
      * @throws \Exception
      */
-    public function getWeather($location, $provider)
+    public function getWeather($location, $provider, $params = array())
     {
         if (isset($this->cache[$location])) {
             $weather = $this->cache[$location];
         } else {
+        	
+        	$this->params['providers'][$provider]['params'] = $params + $this->params['providers'][$provider]['params'];
             $providerFactory = new Service\ProviderFactory();
             $provider = $providerFactory->createProvider($provider, $this->params);
             $provider->setLocation($location);

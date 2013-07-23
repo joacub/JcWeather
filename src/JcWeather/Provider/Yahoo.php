@@ -2,6 +2,7 @@
 
 namespace JcWeather\Provider;
 
+use Nette\Diagnostics\Debugger;
 /**
  * Yahoo! weather provider class for JcWeather.
  *
@@ -65,7 +66,7 @@ class Yahoo extends AbstractProvider
 
         $client = $this->getHttpClient();
         $client->setUri($uri);
-        $client->setParameterGet(array('w' => $this->getLocation()));
+        $client->setParameterGet(array('w' => $this->getLocation(), 'u' => $this->getUnits()));
 
         $response = null;
 
@@ -82,6 +83,13 @@ class Yahoo extends AbstractProvider
         $xml = new \SimpleXMLElement(utf8_encode($response->getBody()));
 
         $forecast = new \JcWeather\Forecast();
+        
+        $forecast->setLocation((string) $xml->channel->xpath('yweather:location')[0]->attributes()->city)
+        ->setCurrent(array(
+        	"icon" => 'http://l.yimg.com/a/i/us/we/52/'.( (string) $xml->channel->item->xpath('yweather:condition')[0]->attributes()->code).'.gif',
+        	"temperature" => (string) $xml->channel->item->xpath('yweather:condition')[0]->attributes()->temp))
+        	->setForecast($xml->channel->item->xpath('yweather:forecast'));
+        
         $this->setForecast($forecast);
 
         return $this;

@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'at-weather' => array(
+    'jc-weather' => array(
         'providers' => array(
             'gismeteo' => array(
                 'name' => 'JcWeather\Provider\Gismeteo',
