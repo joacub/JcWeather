@@ -87,6 +87,7 @@ class Yahoo extends AbstractProvider
         
         $forecast->setLocation((string) $xml['channel']['yweather:location']['city'])
         ->setCurrent(array(
+        	"condition" => $xml['channel']['item']['yweather:condition'],
         	"icon" => 'http://l.yimg.com/a/i/us/we/52/'.( (string) $xml['channel']['item']['yweather:condition']['code']).'.gif',
         	"temperature" => (string) $xml['channel']['item']['yweather:condition']['temp']))
         	->setForecast($xml['channel']['item']['yweather:forecast']);
